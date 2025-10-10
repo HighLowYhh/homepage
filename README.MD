@@ -1,3 +1,7 @@
+# This project fork from Lazy
+
+---
+
 # LightPage
 
 一个不好看的个人主页。无聊随便做的。
