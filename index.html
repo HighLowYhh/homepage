@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="keywords" content="HIGH,LOW,YHH,YeHanHan">
+	<meta name="description" content="Hello, I'm HIGHLOWYHH. Welcome to my homepage.">
+	<meta name="author" content="HIGHLOWYHH">
+	<title>HIGHLOWYHH's Home</title>
+	<link id="favicon" rel="icon" href="head.jpg">
+	<link rel="stylesheet" href="./css/home.css">
+	<link
+		href="https://font.sec.miui.com/font/css?family=MiSans:100,200,300,400,500,600,700:Chinese_Simplify,Latin,Chinese_Traditional&amp;display=swap"
+		rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap-grid.rtl.min.css" type="text/css"
+		rel="stylesheet" />
+</head>
+
+<body>
+	<div class="bg"></div>
+
+	<div id="app" class="container">
+		<div class="row justify-content-center h-screen">
+			<div class="col-lg-7 col-md-12 main-box align-self-center">
+				<div class="row ">
+					<div class="col-md-3">
+						<div class="box-left">
+							<img src="head.jpg" alt="Avatar" title="不可以rua！">
+							<h1>HIGH<br>LOW<br>YHH</h1>
+						</div>
+
+					</div>
+					<div class="col-md-9">
+						<div class="box-right">
+							<ul class="nav-bar">
+								<li class="nav-item" :class="{'nav-active': curC === 'homeの'}">
+									<a href="javascript:;" @click="navShow('homeの')">Home</a>
+								</li>
+								<li class="nav-item" :class="{'nav-active': curC === 'blogの'}">
+									<a href="javascript:;" @click="navShow('blogの')">Blog</a>
+								</li>
+								<li class="nav-item" :class="{'nav-active': curC === 'projectsの'}">
+									<a href="javascript:;" @click="navShow('projectsの')">Projects</a>
+								</li>
+								<li class="nav-item">
+									<a href="#">Nothing</a>
+								</li>
+							</ul>
+
+							<transition name="slide-x" mode="out-in" @enter="onEnter" @before-leave="onBeforeLeave">
+
+								<div class="box-content" v-if="curC === 'homeの'">
+									<p>🫡 Hello, I'm <span id="hi">HIGHLOWYHH.</span></p>
+									<p>🔞 <b>Age:</b> 12</p>
+									<p>📧 <b>E-mail:</b> <a href="mailto:better@highlowyhh.top">better@highlowyhh.top</a></p>
+									<p>🕹️ <b>Hobby:</b> <a href="https://www.minecraft.net/" target="_blank">Minecraft </a> ⇄ <a
+											href="https://ys.mihoyo.com" target="_blank">Genshin Impact</a> ◇ <a href="https://zzz.mihoyo.com"
+											target="_blank">Zenless Zone
+											Zero</a>
+									</p>
+									<p>🧐 <b>Stack:</b> Python, Java, HTML, CSS,JavaScript</p>
+									<p>🤙🏼 <b>Contact:</b>										 <a href="https://space.bilibili.com/3546938936920134" target="_blank">bilibili</a> |
+										<a href="https://github.com/highlowyhh" target="_blank">Github</a> [<a
+											href="https://github.com/highlowyhh/homepage" target="_blank" style="color: #858585;">This
+											Project</a>]
+									</p>
+									<div class="divider" style="width: 60%;"></div>
+									<p>
+										Copyright &copy; 2018 - {{ new Date().getFullYear() }} Lazy all right
+										reserved
+									</p>
+								</div>
+
+								<div class="box-content" v-else-if="curC === 'blogの'" @>
+									<div id="blogs">
+										<p v-if="!blogs.length">加载不出？试试访问：<a href="#" onclick="print()">blog</a>
+										</p>
+										<div class="box-item" v-for="(item, i ) in blogs" :key="i">
+											<b>{{ item.title }}</b>
+											->&nbsp;&nbsp;<a :href="item.link" target="_blank">Read More</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="box-content" v-else-if="curC === 'projectsの'">
+									<div class="box-item" v-for="(item, i ) in projects" :key="i">
+										<a v-bind="item" target="_blank">
+										</a>
+									</div>
+								</div>
+							</transition>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://unpkg.com/vue@3.2.31/dist/vue.global.prod.js" type="application/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+		type="application/javascript"></script>
+	<script src="./js/home.js" type="application/javascript"></script>
+</body>
+
+</html>
